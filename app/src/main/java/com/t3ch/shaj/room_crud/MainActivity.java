@@ -1,17 +1,20 @@
 package com.t3ch.shaj.room_crud;
 
 import android.arch.persistence.room.Room;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.t3ch.shaj.room_crud.database.AppDatabase;
+import com.t3ch.shaj.room_crud.database.MobileEntity;
+
 public class MainActivity extends AppCompatActivity {
 
     //db
-    public static Database mDatabase;
+    public static AppDatabase mDatabase;
 
     //ui
     EditText nameEditText;
@@ -32,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         mobileTextView = findViewById(R.id.tv_view_data);
 
 
-        mDatabase = Room.databaseBuilder(getApplicationContext(), Database.class, "mobiledb").allowMainThreadQueries().build();
+        mDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "mobiledb").allowMainThreadQueries().build();
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Mobile mobile = new Mobile(nameEditText.getText().toString(), priceEditText.getText().toString());
+                MobileEntity mobile = new MobileEntity(nameEditText.getText().toString(), priceEditText.getText().toString());
 
                 mDatabase.mDatabaseDao().insertMobileData(mobile);
 

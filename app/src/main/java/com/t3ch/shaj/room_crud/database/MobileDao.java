@@ -1,4 +1,4 @@
-package com.t3ch.shaj.room_crud;
+package com.t3ch.shaj.room_crud.database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -11,13 +11,13 @@ import java.util.List;
  * shakilahmedshaj@gmail.com
  */
 @Dao
-public interface DatabaseDao {
+public interface MobileDao {
 
     @Insert
-    void insertMobileData(Mobile mobile);
+    void insertMobileData(MobileEntity mobile);
 
     @Query("Select * from mobile")
-    List<Mobile> getData();
+    List<MobileEntity> getData();
 
 
 }

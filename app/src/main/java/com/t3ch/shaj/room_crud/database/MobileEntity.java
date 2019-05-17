@@ -1,4 +1,4 @@
-package com.t3ch.shaj.room_crud;
+package com.t3ch.shaj.room_crud.database;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -8,13 +8,13 @@ import android.arch.persistence.room.PrimaryKey;
  * shakilahmedshaj@gmail.com
  */
 @Entity(tableName = "mobile")
-public class Mobile {
+public class MobileEntity {
     @PrimaryKey(autoGenerate = true)
     int id;
     private String name;
     private String price;
 
-    public Mobile(String name, String price) {
+    public MobileEntity(String name, String price) {
         this.id = id;
         this.name = name;
         this.price = price;
